@@ -1,0 +1,313 @@
+Script started on Thu 26 Apr 2018 11:23:03 PM PDT
+]0;simrikm@andromeda-2:~/53/hw/hw3[?1034hsimrikm@andromeda-2 23:23:03 ~/53/hw/hw3 
+$ make clean
+/bin/rm -f my_ls.o main.o my_ls
+]0;simrikm@andromeda-2:~/53/hw/hw3simrikm@andromeda-2 23:23:07 ~/53/hw/hw3 
+$ make
+gcc -c -ggdb -std=c11 -pedantic -Wall -Wextra -Werror -Wwrite-strings my_ls.c
+gcc -c -ggdb -std=c11 -pedantic -Wall -Wextra -Werror  -Wwrite-strings main.c
+
+gcc -ggdb -std=c11 -pedantic -Wall -Wextra -Werror  -Wwrite-strings my_ls.o main.o -o my_ls
+]0;simrikm@andromeda-2:~/53/hw/hw3simrikm@andromeda-2 23:23:08 ~/53/hw/hw3 
+$ 
+]0;simrikm@andromeda-2:~/53/hw/hw3simrikm@andromeda-2 23:23:08 ~/53/hw/hw3 
+$ valgrinf[Kd my_ls
+==7615== Memcheck, a memory error detector
+==7615== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==7615== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==7615== Command: my_ls
+==7615== 
+-rw-------   1 simrikm ugrad       3302 Apr 26 23:07    my_ls.c/.
+-rw-------   1 simrikm ugrad        372 Apr 25 15:54   Makefile/.
+-rw-------   1 simrikm ugrad        831 Apr 26 23:07    my_ls.h/.
+-rw-------   1 simrikm ugrad      14248 Apr 26 23:23    my_ls.o/.
+-rw-------   1 simrikm ugrad        278 Apr 26 16:11     main.c/.
+-rw-------   1 simrikm ugrad        463 Apr 23 19:45     test.c/.
+-rw-------   1 simrikm ugrad          0 Apr 26 23:23 hw3.script/.
+-rw-------   1 simrikm ugrad       3888 Apr 26 23:23     main.o/.
+-rwx------   1 simrikm ugrad      18704 Apr 26 23:23      my_ls/.
+drwx------   3 simrikm ugrad       4096 Apr 26 17:10       test/.
+	test/
+	-rw-------   1 simrikm ugrad         49 Apr 22 17:59       file/./test
+	drwx------   2 simrikm ugrad       4096 Apr 26 17:39      hello/./test
+		hello/
+		-rw-------   1 simrikm ugrad         49 Apr 26 17:39 sample_file/./test/hello
+-rw-------   1 simrikm ugrad         50 Apr 23 10:59       file/.
+==7615== 
+==7615== HEAP SUMMARY:
+==7615==     in use at exit: 0 bytes in 0 blocks
+==7615==   total heap usage: 189 allocs, 189 frees, 619,138 bytes allocated
+==7615== 
+==7615== All heap blocks were freed -- no leaks are possible
+==7615== 
+==7615== For counts of detected and suppressed errors, rerun with: -v
+==7615== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+]0;simrikm@andromeda-2:~/53/hw/hw3simrikm@andromeda-2 23:23:21 ~/53/hw/hw3 
+$ valgrind my_ls ..
+==7616== Memcheck, a memory error detector
+==7616== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==7616== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==7616== Command: my_ls ..
+==7616== 
+drwx------   3 simrikm ugrad       4096 Apr 26 23:23        hw3/..
+	hw3/
+	-rw-------   1 simrikm ugrad       3302 Apr 26 23:07    my_ls.c/../hw3
+	-rw-------   1 simrikm ugrad        372 Apr 25 15:54   Makefile/../hw3
+	-rw-------   1 simrikm ugrad        831 Apr 26 23:07    my_ls.h/../hw3
+	-rw-------   1 simrikm ugrad      14248 Apr 26 23:23    my_ls.o/../hw3
+	-rw-------   1 simrikm ugrad        278 Apr 26 16:11     main.c/../hw3
+	-rw-------   1 simrikm ugrad        463 Apr 23 19:45     test.c/../hw3
+	-rw-------   1 simrikm ugrad          0 Apr 26 23:23 hw3.script/../hw3
+	-rw-------   1 simrikm ugrad       3888 Apr 26 23:23     main.o/../hw3
+	-rwx------   1 simrikm ugrad      18704 Apr 26 23:23      my_ls/../hw3
+	drwx------   3 simrikm ugrad       4096 Apr 26 17:10       test/../hw3
+		test/
+		-rw-------   1 simrikm ugrad         49 Apr 22 17:59       file/../hw3/test
+		drwx------   2 simrikm ugrad       4096 Apr 26 17:39      hello/../hw3/test
+			hello/
+			-rw-------   1 simrikm ugrad         49 Apr 26 17:39 sample_file/../hw3/test/hello
+	-rw-------   1 simrikm ugrad         50 Apr 23 10:59       file/../hw3
+==7616== 
+==7616== HEAP SUMMARY:
+==7616==     in use at exit: 0 bytes in 0 blocks
+==7616==   total heap usage: 198 allocs, 198 frees, 685,980 bytes allocated
+==7616== 
+==7616== All heap blocks were freed -- no leaks are possible
+==7616== 
+==7616== For counts of detected and suppressed errors, rerun with: -v
+==7616== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+]0;simrikm@andromeda-2:~/53/hw/hw3simrikm@andromeda-2 23:23:27 ~/53/hw/hw3 
+$ valgrind my_ls ..[K[K/usr/local/
+==7619== Memcheck, a memory error detector
+==7619== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==7619== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==7619== Command: my_ls /usr/local/
+==7619== 
+drwxr-xr-x   2  root  root         80 Jan 30 16:36        bin/usr/local/
+	bin/
+	-rwxr-xr-x   1  root  root        452 Jul 14 16:03  topHog.sh/usr/local//bin
+	-rwxr-xr-x   1  root  root     105481 Jul 14 16:03       lbcd/usr/local//bin
+	-rwxr-xr-x   1  root  root        937 Dec 18 10:17 cs143f17_helper.sh/usr/local//bin
+	-rwxr-xr-x   1  root  root        123 Jan 30 16:36 cs143f17.sh/usr/local//bin
+drwxr-xr-x   2  root  root          6 Nov 05 08:38        etc/usr/local/
+	etc/
+drwxr-xr-x   2  root  root          6 Nov 05 08:38      games/usr/local/
+	games/
+drwxr-xr-x   2  root  root          6 Nov 05 08:38    include/usr/local/
+	include/
+drwxr-xr-x   2  root  root          6 Nov 05 08:38        lib/usr/local/
+	lib/
+drwxr-xr-x   2  root  root          6 Nov 05 08:38      lib64/usr/local/
+	lib64/
+drwxr-xr-x   2  root  root          6 Nov 05 08:38    libexec/usr/local/
+	libexec/
+drwxr-xr-x   2  root  root          6 Nov 05 08:38       sbin/usr/local/
+	sbin/
+drwxr-xr-x   5  root  root         49 Apr 17 15:57      share/usr/local/
+	share/
+	drwxr-xr-x   2  root  root         28 Mar 26 18:27 applications/usr/local//share
+		applications/
+		-rw-r--r--   1  root  root         13 Mar 26 18:27 mimeinfo.cache/usr/local//share/applications
+	drwxr-xr-x   2  root  root          6 Nov 05 08:38       info/usr/local//share
+		info/
+	drwxr-xr-x  21  root  root        243 Apr 17 15:57        man/usr/local//share
+		man/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38       man1/usr/local//share/man
+			man1/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38      man1x/usr/local//share/man
+			man1x/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38       man2/usr/local//share/man
+			man2/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38      man2x/usr/local//share/man
+			man2x/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38       man3/usr/local//share/man
+			man3/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38      man3x/usr/local//share/man
+			man3x/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38       man4/usr/local//share/man
+			man4/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38      man4x/usr/local//share/man
+			man4x/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38       man5/usr/local//share/man
+			man5/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38      man5x/usr/local//share/man
+			man5x/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38       man6/usr/local//share/man
+			man6/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38      man6x/usr/local//share/man
+			man6x/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38       man7/usr/local//share/man
+			man7/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38      man7x/usr/local//share/man
+			man7x/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38       man8/usr/local//share/man
+			man8/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38      man8x/usr/local//share/man
+			man8x/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38       man9/usr/local//share/man
+			man9/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38      man9x/usr/local//share/man
+			man9x/
+		drwxr-xr-x   2  root  root          6 Nov 05 08:38       mann/usr/local//share/man
+			mann/
+drwxr-xr-x   2  root  root          6 Nov 05 08:38        src/usr/local/
+	src/
+==7619== 
+==7619== HEAP SUMMARY:
+==7619==     in use at exit: 0 bytes in 0 blocks
+==7619==   total heap usage: 351 allocs, 351 frees, 2,379,073 bytes allocated
+==7619== 
+==7619== All heap blocks were freed -- no leaks are possible
+==7619== 
+==7619== For counts of detected and suppressed errors, rerun with: -v
+==7619== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+]0;simrikm@andromeda-2:~/53/hw/hw3simrikm@andromeda-2 23:23:36 ~/53/hw/hw3 
+$ gdb my_ls
+[?1034hGNU gdb (GDB) 7.12
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-pc-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from my_ls...done.
+(gdb) list
+1	#include "my_ls.h"
+2	#include <string.h>
+3	#include <stdlib.h>
+4	
+5	int main(int argc, char *argv[]){
+6		DIR *dirp;
+7		char *argument=argc>1?argv[1]:(char*)".";
+8		if(!(dirp=opendir(argument)))
+9			print_info(argument,(char*)"",1,0,0);
+10		else
+(gdb) break 7
+Breakpoint 1 at 0x401037: file main.c, line 7.
+(gdb) run test
+Starting program: /home/simrikm/53/hw/hw3/my_ls test
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffdd58) at main.c:7
+7		char *argument=argc>1?argv[1]:(char*)".";
+(gdb) n[Knest
+Undefined command: "nest".  Try "help".
+(gdb) next
+8		if(!(dirp=opendir(argument)))
+(gdb) print argument
+$1 = 0x7fffffffe0b4 "test"
+(gdb) next
+11			do_ls(argument,0);
+(gdb) step
+do_ls (argument=0x7fffffffe0b4 "test", track=0) at my_ls.c:145
+145		if((!(dirp=opendir(argument))))
+(gdb) se[K[Knext
+148			ls_directory(argument,dirp,track);	
+(gdb) step
+ls_directory (argument=0x7fffffffe0b4 "test", dirp=0x60b050, track=0) at my_ls.c:135
+135		while((direntp=readdir(dirp))){	
+(gdb) next
+136			if((strcmp(direntp->d_name,".")!=0)&&(strcmp(direntp->d_name,"..")!=0))
+(gdb) next
+135		while((direntp=readdir(dirp))){	
+(gdb) next
+136			if((strcmp(direntp->d_name,".")!=0)&&(strcmp(direntp->d_name,"..")!=0))
+(gdb) next
+135		while((direntp=readdir(dirp))){	
+(gdb) step [K
+136			if((strcmp(direntp->d_name,".")!=0)&&(strcmp(direntp->d_name,"..")!=0))
+(gdb) orint[K[K[K[K[Kprint direntp->d)[K_name
+$2 = "file\000\000\353\242\004\000\000\000\000\004\000\000\000\000\000\000\000 \000\004hello\000\000\000\000\000\000\000\004", '\000' <repeats 218 times>
+(gdb) step
+137				check_for_recursion(argument,direntp->d_name,track);	
+(gdb) step
+check_for_recursion (argument=0x7fffffffe0b4 "test", filename=0x60b0c3 "file", track=0) at my_ls.c:124
+124		char *temp=pathname(argument,filename);
+(gdb) n[Kbt
+#0  check_for_recursion (argument=0x7fffffffe0b4 "test", filename=0x60b0c3 "file", track=0) at my_ls.c:124
+#1  0x0000000000400fbd in ls_directory (argument=0x7fffffffe0b4 "test", dirp=0x60b050, track=0) at my_ls.c:137
+#2  0x0000000000401017 in do_ls (argument=0x7fffffffe0b4 "test", track=0) at my_ls.c:148
+#3  0x000000000040109b in main (argc=2, argv=0x7fffffffdd58) at main.c:11
+(gdb) step
+pathname (path=0x7fffffffe0b4 "test", filename=0x60b0c3 "file") at my_ls.c:94
+94		char * temp =malloc(BUFSIZ);
+(gdb) next
+95		strcpy(temp,path);
+(gdb) next
+96		strcat(temp,"/");
+(gdb) next
+97		strcat(temp,filename);
+(gdb) next
+98		return temp;
+(gdb) next
+99	}
+(gdb) next
+check_for_recursion (argument=0x7fffffffe0b4 "test", filename=0x60b0c3 "file", track=0) at my_ls.c:125
+125		print_info(argument,filename,check_if_file(temp),track,1);	
+(gdb) next
+-rw-------   1 simrikm ugrad         49 Apr 22 17:59       file/test
+126			if(check_if_file(temp)==0)
+(gdb) next
+128		free(temp);
+(gdb) next
+129	}
+(gdb) next
+ls_directory (argument=0x7fffffffe0b4 "test", dirp=0x60b050, track=0) at my_ls.c:135
+135		while((direntp=readdir(dirp))){	
+(gdb) next
+136			if((strcmp(direntp->d_name,".")!=0)&&(strcmp(direntp->d_name,"..")!=0))
+(gdb) next
+137				check_for_recursion(argument,direntp->d_name,track);	
+(gdb) next
+drwx------   2 simrikm ugrad       4096 Apr 26 17:39      hello/test
+	hello/
+	-rw-------   1 simrikm ugrad         49 Apr 26 17:39 sample_file/test/hello
+135		while((direntp=readdir(dirp))){	
+(gdb) next
+139		track--;
+(gdb) next
+140	}	
+(gdb) next
+do_ls (argument=0x7fffffffe0b4 "test", track=0) at my_ls.c:149
+149		closedir(dirp);
+(gdb) next
+150	}
+(gdb) next
+main (argc=2, argv=0x7fffffffdd58) at main.c:12
+12		closedir(dirp);
+(gdb) next
+13		return 0;
+(gdb) next
+15	}
+(gdb) next
+0x00007ffff7a39c05 in __libc_start_main () from /lib64/libc.so.6
+(gdb) next
+Single stepping until exit from function __libc_start_main,
+which has no line number information.
+[Inferior 1 (process 7633) exited normally]
+(gdb) q
+]0;simrikm@andromeda-2:~/53/hw/hw3simrikm@andromeda-2 23:26:50 ~/53/hw/hw3 
+$ make clean
+/bin/rm -f my_ls.o main.o my_ls
+]0;simrikm@andromeda-2:~/53/hw/hw3simrikm@andromeda-2 23:26:56 ~/53/hw/hw3 
+$ cat Makefile 
+OBJECTS=my_ls.o main.o
+my_ls:$(OBJECTS)
+	gcc -ggdb -std=c11 -pedantic -Wall -Wextra -Werror  -Wwrite-strings $(OBJECTS) -o my_ls
+my_ls.o:my_ls.c my_ls.h 
+	gcc -c -ggdb -std=c11 -pedantic -Wall -Wextra -Werror -Wwrite-strings my_ls.c
+main.o:main.c my_ls.h	 
+	gcc -c -ggdb -std=c11 -pedantic -Wall -Wextra -Werror  -Wwrite-strings main.c
+clean:
+	/bin/rm -f $(OBJECTS) my_ls
+]0;simrikm@andromeda-2:~/53/hw/hw3simrikm@andromeda-2 23:27:05 ~/53/hw/hw3 
+$ exit
+exit
+
+Script done on Thu 26 Apr 2018 11:27:07 PM PDT

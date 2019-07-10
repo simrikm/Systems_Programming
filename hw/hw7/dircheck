@@ -1,0 +1,40 @@
+#!/bin/bash
+
+
+count_subdirectories(){
+	echo "The number of subdirectories in $args is: "`find $args -mindepth 1 -type d -print | wc -l`
+}
+
+count_files(){
+	echo "The number of files in $args is: "`find $args -mindepth 1 -type f -print | wc -l`
+}
+
+count_zero_length_files(){
+	echo "The number of zero length files in $args is: "`find $args -mindepth 1 -type f -size 0 -print | wc -l`
+}
+
+check_the_diskspace(){	
+	echo "The total of disk space in  $args is: "`du -sb $args`
+}
+
+
+if [ "$#" -eq "0" ]
+	then
+	echo "Please enter directory name"
+else
+	for args in $@
+	do
+		if [ -d $args ]		
+		then
+		echo "Information about $args directory----"
+		count_subdirectories $args
+		count_files $args
+		count_zero_length_files $args
+		check_the_diskspace $args
+		echo " "
+		else
+		echo "$args is not a directory"
+	fi
+	done
+fi
+

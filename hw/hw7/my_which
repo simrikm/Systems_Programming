@@ -1,0 +1,13 @@
+#!/bin/bash
+path=(`echo $PATH | tr ":" " "`)
+for args in $*	
+do
+	for f in ${path[*]}
+	do
+	if [ -x $f/$args ]	
+	then
+		echo $f/$args
+		break
+	fi
+	done
+done

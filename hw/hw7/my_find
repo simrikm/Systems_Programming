@@ -1,0 +1,67 @@
+#!/bin/bash
+
+evaluate_expression (){
+
+tokenize_exp=("${@:3}")
+	if [ -z $tokenize_exp ]
+		then
+		return
+		fi	
+	case ${tokenize_exp[0]} in
+		-print) 
+		#	echo $1
+			 evaluate_expression $1 $2 ${tokenize_exp[@]:1};;
+		-type) 
+			case ${tokenize_exp[1]} in	
+				d) if [ -d $1 ]	
+					then
+					 evaluate_expression $1 $2 ${tokenize_exp[@]:2}
+					fi;;
+				f)
+					if [ -f $1 ]
+					then
+					evaluate_expression $1 $2 ${tokenize_exp[@]:2}	
+					fi;;
+				*) echo "ERROR"
+			esac
+			;;
+		-name) 
+					set +f
+					case $1 in
+					$2/${tokenize_exp[1]} )
+					set -f 
+					evaluate_expression $1 $2 ${tokenize_exp[@]:2};;
+					esac;;
+		-exec)
+				a_file=$1 #the file in which the execution command is carried out		
+				shift 3 #will remove the first three arguments given to hhe functions			
+				val=`echo $@ | sed s@{}@$a_file@`
+				val=`echo $val | tr ";" " "`
+				$val
+					;;			
+		*) 
+			echo "Unknown Flags"
+			exit 1
+		esac
+}
+
+
+
+my_find (){
+set -f
+	evaluate_expression $1 $2 ${expression[*]}
+	if [ -d $1 ]
+		then	
+		subfile=(`ls -A $1`)
+		for f in ${subfile[*]}
+			do	
+				my_find $1/$f $1 ${expression[*]}
+			done	
+	fi
+}
+
+set -f
+file=$1
+expression=("${@:2}")
+my_find $file $1 ${expression[*]}
+
